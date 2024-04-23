@@ -18,7 +18,7 @@ $(document).ready(function() {
 
             // Calculate the font size based on the distance from the center
             var maxDistance = windowHeight / 2;
-            var maxFontSize = 80 * scalingFactor; // Maximum font size for the year
+            var maxFontSize = 100 * scalingFactor; // Maximum font size for the year
             var minFontSize = 2 * scalingFactor;  // Minimum font size for the year
             var fontSize = minFontSize + (1 - (distanceFromCenter / maxDistance)) * (maxFontSize - minFontSize); // Adjust the scale factor as needed
 

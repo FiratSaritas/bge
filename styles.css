@@ -8,7 +8,7 @@
 .year-content {
     display: flex; /* Use flexbox to align year and counter */
     align-items: center; /* Center items horizontally */
-    margin-bottom: 20px; /* Add margin between each year and counter pair */
+    margin-bottom: 50px; /* Add margin between each year and counter pair */
 }
 
 .year, .counter, .separator {
