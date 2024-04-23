@@ -4,13 +4,13 @@ $(document).ready(function() {
         var documentHeight = $(document).height();
         var scrollTop = $(window).scrollTop();
         
-        // Calculate the percentage scrolled
-        var scrollPercentage = (scrollTop / (documentHeight - windowHeight)) * 100;
-        
-        // Calculate the year based on the scroll percentage
+        // Calculate the proportion of how far the user has scrolled
+        var scrollProportion = scrollTop / (documentHeight - windowHeight);
+
+        // Calculate the year based on the scroll proportion
         var minYear = 1875;
         var maxYear = 2024;
-        var currentYear = Math.round(((maxYear - minYear) * scrollPercentage) / 100) + minYear;
+        var currentYear = Math.round(minYear + (maxYear - minYear) * scrollProportion);
 
         // Calculate the corresponding counter value
         var counterValue = 150 - (2024 - currentYear);
