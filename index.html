@@ -3,54 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Year and Band</title>
-    <!-- Include jQuery and jQuery UI -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"></script>
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
-    <!-- Your custom CSS -->
-    <style>
-        #container {
-            text-align: center;
-            margin-top: 100px;
-        }
-        #year {
-            font-size: 48px;
-            margin-bottom: 20px;
-        }
-        #band {
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
-        #year-slider {
-            height: 400px;
-            margin: 0 auto;
-        }
-    </style>
+    <title>Scroll Year</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="container">
-        <div id="year">2024</div>
-        <div id="band">150</div>
-        <div id="year-slider"></div>
+    <div id="yearContainer">
+        <p id="year">2024</p>
+        <p id="counter">150</p>
     </div>
-    <script>
-        $(function() {
-            // Initialize the vertical slider
-            $("#year-slider").slider({
-                orientation: "vertical", // Set the slider orientation to vertical
-                min: 1874, // Set the minimum year
-                max: 2024, // Set the maximum year
-                value: 2024, // Set initial year value
-                slide: function(event, ui) {
-                    // Update the displayed year
-                    $("#year").text(ui.value);
-                    // Calculate band value based on year (example calculation)
-                    var band = 1 + (2024 - ui.value);
-                    $("#band").text(band);
-                }
-            });
-        });
-    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
