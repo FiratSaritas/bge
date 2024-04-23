@@ -23,3 +23,11 @@
 #spacer-top {
     height: 50vh; /* Adjust the height as needed to create space at the top */
 }
+
+/* Example of targeting iPhone screens with a max-height media query */
+@media only screen and (max-device-height: 800px) {
+    /* Custom styles for iPhones or devices with similar height */
+    .year, .counter {
+        /* Adjust font sizes or other styles as needed */
+    }
+}

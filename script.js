@@ -13,10 +13,13 @@ $(document).ready(function() {
             // Calculate the distance of the year from the center of the viewport
             var distanceFromCenter = Math.abs(windowHeight / 2 - centerPosition + scrollTop);
             
+            // Adjust scaling factor based on viewport height
+            var scalingFactor = windowHeight > 800 ? 1.5 : 1; // Adjust as needed
+
             // Calculate the font size based on the distance from the center
             var maxDistance = windowHeight / 2;
-            var maxFontSize = 60; // Maximum font size for the year
-            var minFontSize = 2;  // Minimum font size for the year
+            var maxFontSize = 60 * scalingFactor; // Maximum font size for the year
+            var minFontSize = 2 * scalingFactor;  // Minimum font size for the year
             var fontSize = minFontSize + (1 - (distanceFromCenter / maxDistance)) * (maxFontSize - minFontSize); // Adjust the scale factor as needed
 
             // Update the font size of the year
