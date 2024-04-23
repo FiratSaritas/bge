@@ -19,3 +19,7 @@
     transform: translateX(-50%);
     opacity: 0.5; /* Adjust opacity for smaller numbers */
 }
+
+#spacer-top {
+    height: 50vh; /* Adjust the height as needed to create space at the top */
+}

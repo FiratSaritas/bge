@@ -1,5 +1,6 @@
 $(document).ready(function() {
-    $(window).on('scroll', function() {
+    // Function to handle scroll event
+    function handleScroll() {
         var windowHeight = $(window).height();
         var scrollTop = $(window).scrollTop();
         var maxScroll = $(document).height() - windowHeight;
@@ -24,5 +25,11 @@ $(document).ready(function() {
             // Update the font size of the counter (same as the year)
             $(this).siblings('.counter').css('font-size', fontSize + 'px');
         });
-    });
+    }
+
+    // Trigger scroll event handler after page load
+    handleScroll();
+
+    // Bind scroll event handler
+    $(window).on('scroll', handleScroll);
 });
