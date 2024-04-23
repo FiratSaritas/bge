@@ -1,7 +1,7 @@
 .year-wrapper {
     text-align: center;
     position: relative;
-    margin-bottom: 80px; /* Add margin between year and counter */
+    margin-bottom: 120px; /* Add margin between year and counter */
 }
 
 .year {
