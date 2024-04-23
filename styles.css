@@ -1,14 +1,21 @@
-#yearContainer {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 48px;
-    text-align: center; /* Center the text horizontally */
+.year-wrapper {
+    text-align: center;
+    position: relative;
+    margin-bottom: 80px; /* Add margin between year and counter */
 }
 
-#counter {
-    font-size: 24px; /* Set smaller font size for the counter */
+.year {
+    font-size: 40px; /* Base font size */
+    margin: 0px 0; /* Adjusted margin to make the year and number closer */
+    transform-origin: center center; /* Set the transform origin to the center */
     position: relative;
-    top: -20px; /* Adjust vertical position to bring the counter closer to the year */
+}
+
+.counter {
+    font-size: 1px; /* Smaller font size for numbers */
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0.5; /* Adjust opacity for smaller numbers */
 }
