@@ -1,33 +1,35 @@
-.year-wrapper {
-    text-align: center;
-    position: relative;
+.year-container {
+    display: flex;
+    flex-direction: column; /* Arrange items in a column */
+    align-items: center; /* Center items horizontally */
     margin-bottom: 120px; /* Add margin between year and counter */
 }
 
+.year-content {
+    display: flex; /* Use flexbox to align year and counter */
+    align-items: center; /* Center items horizontally */
+    margin-bottom: 20px; /* Add margin between each year and counter pair */
+}
+
+.year, .counter, .separator {
+    margin: 0; /* Reset margin */
+}
+
 .year {
-    font-size: 40px; /* Base font size */
-    margin: 0px 0; /* Adjusted margin to make the year and number closer */
-    transform-origin: center center; /* Set the transform origin to the center */
-    position: relative;
+    font-size: 50px; /* Larger font size for the year */
+}
+
+.separator {
+    margin: 0 10px; /* Adjust as needed */
+    font-size: 80px; /* Base font size */
+    opacity: 0.5; /* Adjust opacity for separator */
 }
 
 .counter {
-    font-size: 1px; /* Smaller font size for numbers */
-    position: absolute;
-    bottom: 0px;
-    left: 50%;
-    transform: translateX(-50%);
+    font-size: 10px; /* Smaller font size for the counter */
     opacity: 0.5; /* Adjust opacity for smaller numbers */
 }
 
 #spacer-top {
     height: 50vh; /* Adjust the height as needed to create space at the top */
-}
-
-/* Example of targeting iPhone screens with a max-height media query */
-@media only screen and (max-device-height: 800px) {
-    /* Custom styles for iPhones or devices with similar height */
-    .year, .counter {
-        /* Adjust font sizes or other styles as needed */
-    }
 }
