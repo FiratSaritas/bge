@@ -5,6 +5,9 @@ $(document).ready(function() {
         var minYear = 1875;
         var maxYear = 2024;
 
+        // Ensure scrollPosition doesn't exceed maxScroll
+        scrollPosition = Math.min(scrollPosition, maxScroll);
+
         // Calculate the year based on the scroll position
         var currentYear = Math.round((maxYear - minYear) * (scrollPosition / maxScroll)) + minYear;
 
