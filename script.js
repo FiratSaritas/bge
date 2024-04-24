@@ -61,30 +61,17 @@ $(document).ready(function() {
                 }
             });
 
-            // If no match was found, display a message
+            // If no match was found, do nothing
             if (!found) {
-                alert("No matching result found.");
+                // You can add alternative behavior here if needed
             }
         } else {
-            // If input is empty or contains non-numeric characters, display an error message
-            alert("Please enter a valid number.");
+            // If input is empty or contains non-numeric characters, do nothing
         }
     }
 
-    // Bind keydown event on the search input to allow only numeric input
-    $('#search-input').on('keydown', function(event) {
-        // Allow only numeric input (0-9), Backspace, and Enter
-        if (!((event.keyCode >= 48 && event.keyCode <= 57) || (event.keyCode >= 96 && event.keyCode <= 105) || event.keyCode === 8 || event.keyCode === 13)) {
-            event.preventDefault();
-        }
-        // Trigger search on Enter key
-        if (event.keyCode === 13) {
-            handleSearch();
-        }
-    });
-
-    // Bind click event on the search button
-    $('#search-button').on('click', function() {
+    // Bind input event on the search input to trigger search
+    $('#search-input').on('input', function(event) {
         handleSearch();
     });
 });
