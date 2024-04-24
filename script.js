@@ -35,4 +35,49 @@ $(document).ready(function() {
 
     // Bind scroll event handler
     $(window).on('scroll', handleScroll);
+
+    // Function to handle search
+    // Function to handle search
+function handleSearch() {
+    var searchTerm = $('#search-input').val().trim().toLowerCase();
+    
+    // Check if the search term is not empty
+    if (searchTerm !== '') {
+        var windowHeight = $(window).height();
+        var middleViewport = windowHeight / 2;
+        
+        var found = false; // Flag to check if a match is found
+        // Iterate through each year content and check if it matches the search term
+        $('.year-content').each(function() {
+            var yearText = $(this).find('.year').text().trim().toLowerCase();
+            var counterText = $(this).find('.counter').text().trim().toLowerCase();
+            if (yearText === searchTerm || counterText === searchTerm) {
+                // Scroll to the matched year content, positioning it in the middle of the viewport
+                var position = $(this).offset().top - middleViewport + ($(this).outerHeight() / 2);
+                $('html, body').animate({
+                    scrollTop: position
+                }, 500);
+                found = true;
+                return false; // Exit the loop after finding the first match
+            }
+        });
+
+        // If no match was found, display a message
+        if (!found) {
+            alert("No matching result found.");
+        }
+    }
+}
+
+    // Bind keydown event on the search input
+    $('#search-input').on('keydown', function(event) {
+        if (event.key === 'Enter') {
+            handleSearch();
+        }
+    });
+
+    // Function to handle search button click
+    $('#search-button').on('click', function() {
+        handleSearch();
+    });
 });

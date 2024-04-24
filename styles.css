@@ -33,3 +33,25 @@
 #spacer-top {
     height: 50vh; /* Adjust the height as needed to create space at the top */
 }
+
+#search-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #f2f2f2;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+#search-input {
+    width: calc(100% - 20px);
+    max-width: 600px;
+    margin: 0 auto;
+    display: block;
+    padding: 8px 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
