@@ -53,14 +53,37 @@
     color: #333; /* Adjust text color as needed */
 }
 
+.search-container {
+    display: flex;
+    flex-direction: column; /* Change to column layout */
+    align-items: center; /* Center horizontally */
+}
+
 #search-input {
     width: calc(100% - 20px); /* Adjust width based on container width */
     max-width: 600px;
-    margin: 0 auto;
-    display: block;
+    margin-bottom: 10px; /* Add margin below input */
     padding: 8px 12px;
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box; /* Include padding and border in the width calculation */
+}
+
+#search-button {
+    width: 100%; /* Make button full width */
+    max-width: 200px; /* Set maximum width */
+    padding: 8px 0; /* Adjust vertical padding */
+    font-size: 16px;
+    border: 1px solid #ccc; /* Set border color to grey */
+    border-radius: 4px;
+    background-color: #ccc; /* Set background color to grey */
+    color: #000; /* Change text color to black */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#search-button:hover {
+    background-color: #999; /* Change hover background color as needed */
+    border-color: #999; /* Change hover border color as needed */
 }

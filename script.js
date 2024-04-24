@@ -82,4 +82,9 @@ $(document).ready(function() {
             handleSearch();
         }
     });
+
+    // Bind click event on the search button
+    $('#search-button').on('click', function() {
+        handleSearch();
+    });
 });
