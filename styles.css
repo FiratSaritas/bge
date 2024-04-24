@@ -83,3 +83,11 @@
     border-radius: 4px; /* Round the corners */
     box-sizing: border-box; /* Include padding and border in the width calculation */
 }
+
+@media only screen and (max-width: 600px) {
+    #search-bar {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+}
