@@ -35,7 +35,7 @@
 }
 
 #search-bar {
-    position: fixed;
+    position: sticky;
     top: 0;
     left: 0;
     width: 100%;
@@ -84,10 +84,3 @@
     box-sizing: border-box; /* Include padding and border in the width calculation */
 }
 
-@media only screen and (max-width: 600px) {
-    #search-bar {
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-    }
-}
