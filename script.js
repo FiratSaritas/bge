@@ -1,77 +1,103 @@
 $(document).ready(function() {
-    // Function to handle scroll event
+    // Toggle info panel
+    $('#info-btn').click(function() {
+        $('.info-panel').slideToggle(300);
+    });
+
+    // Handle scroll animation
     function handleScroll() {
         var windowHeight = $(window).height();
         var scrollTop = $(window).scrollTop();
         var maxScroll = $(document).height() - windowHeight;
 
-        $('.year').each(function() {
+        $('.year-content').each(function() {
             var position = $(this).offset().top;
             var elementHeight = $(this).outerHeight();
-            var centerPosition = position + (elementHeight / 2); // Center position of the year
-
-            // Calculate the distance of the year from the center of the viewport
+            var centerPosition = position + (elementHeight / 2);
             var distanceFromCenter = Math.abs(windowHeight / 2 - centerPosition + scrollTop);
             
-            // Adjust scaling factor based on viewport height
-            var scalingFactor = windowHeight > 800 ? 1.5 : 1; // Adjust as needed
-
-            // Calculate the font size based on the distance from the center
-            var maxDistance = windowHeight / 2;
-            var maxFontSize = 70 * scalingFactor; // Maximum font size for the year
-            var minFontSize = 2 * scalingFactor;  // Minimum font size for the year
-            var fontSize = minFontSize + (1 - (distanceFromCenter / maxDistance)) * (maxFontSize - minFontSize); // Adjust the scale factor as needed
-
-            // Update the font size of the year
-            $(this).css('font-size', fontSize + 'px');
+            // Adjust scaling based on viewport size
+            var scalingFactor = windowHeight > 800 ? 1.5 : 1.2;
             
-            // Update the font size of the counter (same as the year)
-            $(this).siblings('.counter').css('font-size', fontSize + 'px');
+            // Calculate size multiplier (1 at center, 0.7 at edges)
+            var sizeMultiplier = 1 - (distanceFromCenter / (windowHeight * 1.5));
+            sizeMultiplier = Math.max(0.7, Math.min(1, sizeMultiplier));
+            
+            // Calculate opacity
+            var opacity = 1 - (distanceFromCenter / (windowHeight));
+            opacity = Math.max(0.4, Math.min(1, opacity));
+            
+            // Apply transformations
+            $(this).css({
+                'transform': `scale(${0.9 + (sizeMultiplier * 0.2)})`,
+                'opacity': opacity
+            });
+            
+            // Highlight current year in viewport center
+            if (distanceFromCenter < 50) {
+                $(this).addClass('highlight');
+            } else {
+                $(this).removeClass('highlight');
+            }
         });
     }
 
-    // Trigger scroll event handler after page load
-    handleScroll();
-
-    // Bind scroll event handler
-    $(window).on('scroll', handleScroll);
-
-    // Function to handle search
+    // Search function
     function handleSearch() {
         var searchTerm = $('#search-input').val().trim();
         
-        // Check if the search term is not empty and contains only numbers
         if (searchTerm !== '' && /^\d+$/.test(searchTerm)) {
             var windowHeight = $(window).height();
             var middleViewport = windowHeight / 2;
+            var found = false;
             
-            var found = false; // Flag to check if a match is found
-            // Iterate through each year content and check if it matches the search term
             $('.year-content').each(function() {
-                var yearText = $(this).find('.year').text().trim().toLowerCase();
-                var counterText = $(this).find('.counter').text().trim().toLowerCase();
+                var yearText = $(this).find('.year').text().trim();
+                var counterText = $(this).find('.counter').text().trim();
+                
                 if (yearText === searchTerm || counterText === searchTerm) {
-                    // Scroll to the matched year content, positioning it in the middle of the viewport
                     var position = $(this).offset().top - middleViewport + ($(this).outerHeight() / 2);
-                    $('html, body').animate({
-                        scrollTop: position
-                    }, 500);
+                    $('html, body').animate({ scrollTop: position }, 600, 'swing');
+                    
+                    // Highlight match
+                    $(this).addClass('highlight');
+                    $(this).find('.year, .counter').css('color', '#e74c3c');
+                    
+                    // Remove highlight after delay
+                    setTimeout(() => {
+                        $(this).removeClass('highlight');
+                        $(this).find('.year, .counter').css('color', '');
+                    }, 3000);
+                    
                     found = true;
-                    return false; // Exit the loop after finding the first match
+                    return false; // Break loop
                 }
             });
-
-            // If no match was found, do nothing
+            
             if (!found) {
-                // You can add alternative behavior here if needed
+                // Show error feedback
+                $('#search-input').css('border', '2px solid #e74c3c');
+                setTimeout(() => {
+                    $('#search-input').css('border', 'none');
+                }, 2000);
             }
-        } else {
-            // If input is empty or contains non-numeric characters, do nothing
         }
     }
 
-    // Bind input event on the search input to trigger search
-    $('#search-input').on('input', function(event) {
-        handleSearch();
+    // Event handlers
+    $(window).on('scroll', handleScroll);
+    $('#search-input').on('input', handleSearch);
+    $('#search-btn').click(handleSearch);
+    $('#search-input').keypress(function(e) {
+        if (e.which === 13) handleSearch();
     });
+
+    // Initialize
+    handleScroll();
+    
+    // Auto-open info panel on first visit
+    if (!localStorage.getItem('visited')) {
+        $('.info-panel').slideDown(500);
+        localStorage.setItem('visited', 'true');
+    }
 });
