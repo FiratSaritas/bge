@@ -1,37 +1,90 @@
+/* Updated CSS with enhanced year list styling */
+:root {
+    --primary-color: #2e5a88;
+    --secondary-color: #4a7abf;
+    --accent-color: #f0b400;
+    --light-bg: #f8f9fa;
+    --dark-text: #333;
+    --highlight-color: #e74c3c;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to bottom, #e6f0ff, #f8f9fa);
+    color: var(--dark-text);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
 .year-container {
     display: flex;
-    flex-direction: column; /* Arrange items in a column */
-    align-items: center; /* Center items horizontally */
-    margin-bottom: 120px; /* Add margin between year and counter */
+    flex-direction: column;
+    align-items: center;
+    margin: 30px 0 120px;
+    padding: 0 20px;
 }
 
 .year-content {
-    display: flex; /* Use flexbox to align year and counter */
-    align-items: center; /* Center items horizontally */
-    margin-bottom: 50px; /* Add margin between each year and counter pair */
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    transition: all 0.3s ease;
+    width: 100%;
+    max-width: 400px;
+    padding: 10px 20px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.85);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.year-content:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    background: white;
+    z-index: 10;
+}
+
+.year-content.highlight {
+    background: #fff3f2;
+    animation: pulse 2s ease-in-out;
+}
+
+@keyframes pulse {
+    0% { background-color: #fff3f2; }
+    50% { background-color: #ffeceb; }
+    100% { background-color: #fff3f2; }
 }
 
 .year, .counter, .separator {
-    margin: 0; /* Reset margin */
+    margin: 0;
+    transition: all 0.3s ease;
 }
 
 .year {
-    font-size: 50px; /* Larger font size for the year */
+    font-size: 42px;
+    color: var(--primary-color);
+    font-weight: 700;
+    width: 100px;
+    text-align: right;
 }
 
 .separator {
-    margin: 0 10px; /* Adjust as needed */
-    font-size: 80px; /* Base font size */
-    opacity: 0.5; /* Adjust opacity for separator */
+    margin: 0 15px;
+    font-size: 30px;
+    opacity: 0.3;
+    color: var(--secondary-color);
+    width: 20px;
+    text-align: center;
 }
 
 .counter {
-    font-size: 10px; /* Smaller font size for the counter */
-    opacity: 0.5; /* Adjust opacity for smaller numbers */
-}
-
-#spacer-top {
-    height: 50%; /* Adjust the height as needed to create space at the top */
+    font-size: 42px;
+    color: var(--secondary-color);
+    font-weight: 600;
+    width: 100px;
+    text-align: left;
 }
 
 #search-bar {
@@ -39,48 +92,216 @@
     top: 0;
     left: 0;
     width: 100%;
-    background-color: #f2f2f2;
-    padding: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(135deg, var(--primary-color), #1a3a5f);
+    padding: 15px 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     z-index: 1000;
-    box-sizing: border-box; /* Include padding and border in the width calculation */
-    border-bottom-left-radius: 30px; /* Round the top left corner */
-    border-bottom-right-radius: 30px; /* Round the top right corner */
+    box-sizing: border-box;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    color: white;
+    text-align: center;
 }
 
 #search-bar h1 {
-    text-align: center; /* Center-align the text */
-    margin: 0; /* Remove default margin */
-    font-size: 40px; /* Adjust font size as needed */
-    color: #333; /* Adjust text color as needed */
+    margin: 10px 0;
+    font-size: 32px;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
+
 #search-bar h2 {
-    text-align: center; /* Center-align the text */
-    margin: 0; /* Remove default margin */
-    font-size: 15px; /* Adjust font size as needed */
-    color: #333; /* Adjust text color as needed */
-}
-#search-bar h3 {
-    text-align: center; /* Center-align the text */
-    margin: 0; /* Remove default margin */
-    font-size: 18px; /* Adjust font size as needed */
-    color: #333; /* Adjust text color as needed */
+    margin: 5px 0;
+    font-size: 18px;
+    color: rgba(255,255,255,0.9);
+    font-weight: 400;
 }
 
 .search-container {
     display: flex;
-    flex-direction: column; /* Change to column layout */
-    align-items: center; /* Center horizontally */
+    justify-content: center;
+    margin: 15px 0 10px;
+    width: 100%;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #search-input {
-    width: calc(100% - 20px); /* Adjust width based on container width */
-    max-width: 600px;
-    margin-bottom: 10px; /* Add margin below input */
-    padding: 8px 12px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px; /* Round the corners */
-    box-sizing: border-box; /* Include padding and border in the width calculation */
+    flex: 1;
+    padding: 12px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 50px 0 0 50px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    max-width: 500px;
+    transition: all 0.3s;
 }
 
+#search-input:focus {
+    outline: none;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+}
+
+#search-btn {
+    background: var(--accent-color);
+    border: none;
+    border-radius: 0 50px 50px 0;
+    padding: 0 25px;
+    cursor: pointer;
+    color: white;
+    font-size: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: background 0.3s;
+}
+
+#search-btn:hover {
+    background: #e0a800;
+}
+
+#info-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+#info-btn:hover {
+    transform: scale(1.1);
+}
+
+.info-panel {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 25px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    display: none;
+}
+
+.info-panel h3 {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 10px;
+    font-size: 24px;
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin: 25px 0;
+}
+
+.info-card {
+    background: var(--light-bg);
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 4px solid var(--secondary-color);
+    transition: transform 0.3s;
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+.info-card i {
+    font-size: 28px;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.info-card h4 {
+    margin: 10px 0;
+    color: var(--primary-color);
+}
+
+.examples {
+    background: #fffae6;
+    padding: 15px 20px;
+    border-radius: 8px;
+    border-left: 4px solid var(--accent-color);
+    margin-top: 20px;
+    font-size: 15px;
+}
+
+.examples h4 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+ul {
+    padding-left: 20px;
+    margin: 10px 0;
+}
+
+li {
+    margin-bottom: 8px;
+}
+
+@media (max-width: 768px) {
+    #search-input {
+        font-size: 16px;
+        padding: 10px 15px;
+    }
+    
+    .year {
+        font-size: 36px;
+    }
+    
+    .counter {
+        font-size: 36px;
+    }
+    
+    .year-content {
+        max-width: 320px;
+    }
+    
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .info-panel {
+        padding: 15px;
+        margin: 20px 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .year, .counter {
+        font-size: 32px;
+    }
+    
+    .separator {
+        font-size: 24px;
+    }
+    
+    .year-content {
+        padding: 8px 15px;
+    }
+}
