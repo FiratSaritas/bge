@@ -1,7 +1,14 @@
 $(document).ready(function() {
     // Toggle info panel
     $('#info-btn').click(function() {
-        $('.info-panel').slideToggle(300);
+        $('.info-panel').slideToggle(300, function() {
+            // Only scroll if we're opening the panel
+            if ($(this).is(':visible')) {
+                $('html, body').animate({
+                    scrollTop: 0
+                }, 300);
+            }
+        });
     });
 
     // Handle scroll animation
