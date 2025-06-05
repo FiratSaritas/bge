@@ -1,3 +1,20 @@
+// Dynamische Generierung der Jahre und Bände von 2025 (Band 151) bis 1875 (Band 1)
+function generateYearBandList(startYear = 2025, endYear = 1875, startBand = 151) {
+    const container = document.getElementById('year-container');
+    for (let year = startYear, band = startBand; year >= endYear; year--, band--) {
+        const entry = document.createElement('div');
+        entry.className = 'year-content';
+        entry.innerHTML = `
+            <p class="year">${year}</p>
+            <div class="separator">|</div>
+            <p class="counter">${band}</p>
+        `;
+        container.appendChild(entry);
+    }
+}
+
+generateYearBandList();
+
 $(document).ready(function() {
     // Toggle info panel
     $('#info-btn').click(function() {
