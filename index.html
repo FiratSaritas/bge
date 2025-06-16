@@ -11,47 +11,58 @@
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9394843071535758" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsde
-    livr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const ctx = document.getElementById('bgeBarChart').getContext('2d');
             new Chart(ctx, {
                 type: 'bar',
-data: {
-    labels: ['2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024'],
-    datasets: [{
-        label: 'Veröffentlichte Entscheide (ca.)',
-        data: [1400, 1450, 1500, 1550, 1600, 1650, 1700, 1750, 1800, 0],
-        backgroundColor: '#4a7abf',
-        borderColor: '#2e5a88',
-        borderWidth: 1,
-        borderRadius: 4
-    }]
-},
-options: {
-    plugins: {
-        title: {
-            display: true,
-            text: 'Anzahl veröffentlichter Bundesgerichtsentscheide pro Jahr (ca.)',
-            font: {
-                size: 18,
-                weight: 'bold'
-            }
-        },
-        legend: {
-            display: false
-        }
-    }
-}
-
-                
+                data: {
+                    labels: ['2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024'],
+                    datasets: [{
+                        label: 'Veröffentlichte Entscheide (ca.)',
+                        data: [1400, 1450, 1500, 1550, 1600, 1650, 1700, 1750, 1800, 0], // Data for 2024 is 0 as per original
+                        backgroundColor: '#4a7abf',
+                        borderColor: '#2e5a88',
+                        borderWidth: 1,
+                        borderRadius: 4
+                    }]
+                },
+                options: {
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Anzahl veröffentlichter Bundesgerichtsentscheide pro Jahr (ca.)',
+                            font: {
+                                size: 18,
+                                weight: 'bold'
+                            }
+                        },
+                        legend: {
+                            display: false
+                        }
+                    }
+                }
             });
         });
-        
-        </script>
+    </script>
 </head>
 <body>
+    <header>
+        <div class="logo">
+            <a href="index.html">BGE Jahr</a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Startseite</a></li>
+                <li><a href="about.html">Über uns</a></li>
+                <li><a href="privacy.html">Datenschutz</a></li>
+                <li><a href="terms.html">Nutzungsbedingungen</a></li>
+                <li><a href="contact.html">Kontakt</a></li>
+            </ul>
+        </nav>
+    </header>
+
     <div id="search-bar">
         <button id="info-btn"><i class="fas fa-info-circle"></i></button>
         <h2>Bundesgerichtsentscheide Schweiz</h2>
@@ -100,12 +111,11 @@ options: {
             <p>Seit 1875 wurden über 20'000 Entscheide als BGE veröffentlicht. In den letzten Jahren nahm der Anteil an öffentlich-rechtlichen Entscheiden (Rechtsgebiet I) kontinuierlich zu. Der jährliche Umfang beträgt etwa 1'000 bis 1'500 Seiten.</p>
             <p>Spitzenjahre mit besonders vielen Entscheiden: 1995, 2000, 2010, 2020.</p>
             <div class="chart-container" style="width: 100%; max-width: 600px; margin: auto;">
-  <canvas id="bgeBarChart"></canvas>
-  <p style="font-size: 0.85em; font-style: italic; color: #555; text-align: center; margin-top: 4px;">
-    Diese Zahlen beruhen auf öffentlich zugänglichen Statistiken, offiziellen BGE-Bänden und Berichten der Bundesgerichtsschrift.
-  </p>
-</div>
-            
+                <canvas id="bgeBarChart"></canvas>
+                <p style="font-size: 0.85em; font-style: italic; color: #555; text-align: center; margin-top: 4px;">
+                    Diese Zahlen beruhen auf öffentlich zugänglichen Statistiken, offiziellen BGE-Bänden und Berichten der Bundesgerichtsschrift.
+                </p>
+            </div>
         </div>
         <div class="examples">
             <h4><i class="fas fa-lightbulb"></i> Beispiele:</h4>
@@ -115,22 +125,7 @@ options: {
     </div>
 
     <div class="year-container" id="year-container"></div>
-    <!-- Privacy Policy Section -->
-    <section id="privacy" style="padding: 2em; background: #fff; text-align: center;">
-        <h2>Datenschutzerklärung</h2>
-        <p>Diese Webseite sammelt keine personenbezogenen Daten.</p>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" style="padding: 2em; background: #f9f9f9; text-align: center;">
-        <h2>Kontakt / Impressum</h2>
-        <p>Verantwortlich für den Inhalt dieser Seite:</p>
-        <p><strong>BGE Jahr</strong><br>
-        bgejahr.ch<br>
-        8000 Zürich, Schweiz<br>
-        E-Mail: kontakt@bgejahr.ch</p>
-    </section>
-
+    
     <footer style="text-align: center; padding: 1em; font-size: 0.9em; background-color: #efefef;">
         &copy; 2025 BGE Jahr. Alle Rechte vorbehalten.
     </footer>
