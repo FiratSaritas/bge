@@ -11,40 +11,11 @@
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9394843071535758" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Chart.js is now only needed on info.html, so removed from here -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const ctx = document.getElementById('bgeBarChart').getContext('2d');
-            new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: ['2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024'],
-                    datasets: [{
-                        label: 'Veröffentlichte Entscheide (ca.)',
-                        data: [1400, 1450, 1500, 1550, 1600, 1650, 1700, 1750, 1800, 0], // Data for 2024 is 0 as per original
-                        backgroundColor: '#4a7abf',
-                        borderColor: '#2e5a88',
-                        borderWidth: 1,
-                        borderRadius: 4
-                    }]
-                },
-                options: {
-                    plugins: {
-                        title: {
-                            display: true,
-                            text: 'Anzahl veröffentlichter Bundesgerichtsentscheide pro Jahr (ca.)',
-                            font: {
-                                size: 18,
-                                weight: 'bold'
-                            }
-                        },
-                        legend: {
-                            display: false
-                        }
-                    }
-                }
-            });
-        });
+        // No need for Chart.js script directly in index.html anymore
+        // as the chart is moved to info.html
     </script>
 </head>
 <body>
@@ -55,6 +26,7 @@
         <nav>
             <ul>
                 <li><a href="index.html">Startseite</a></li>
+                <li><a href="info.html">Informationen</a></li>
                 <li><a href="about.html">Über uns</a></li>
                 <li><a href="privacy.html">Datenschutz</a></li>
                 <li><a href="terms.html">Nutzungsbedingungen</a></li>
@@ -64,7 +36,8 @@
     </header>
 
     <div id="search-bar">
-        <button id="info-btn"><i class="fas fa-info-circle"></i></button>
+        <!-- Removed info-btn here -->
+        <!-- <button id="info-btn"><i class="fas fa-info-circle"></i></button> -->
         <h2>Bundesgerichtsentscheide Schweiz</h2>
         <h1>BGE Jahr & Band Finder</h1>
         <div class="search-container">
@@ -73,6 +46,8 @@
         </div>
     </div>
 
+    <!-- Removed info-panel content from here -->
+    <!--
     <div class="info-panel">
         <h3><i class="fas fa-landmark"></i> Bundesgerichtsentscheide (BGE)</h3>
         <p>Die amtliche Sammlung der Entscheidungen des Schweizerischen Bundesgerichts (BGE) dokumentiert rechtskräftige Urteile seit 1874.</p>
@@ -123,6 +98,7 @@
             <p>BGE 150 IV 75 = Band 150, Strafrecht, Entscheid 75</p>
         </div>
     </div>
+    -->
 
     <div class="year-container" id="year-container"></div>
     

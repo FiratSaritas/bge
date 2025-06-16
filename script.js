@@ -1,4 +1,4 @@
-// Dynamische Generierung der Jahre und Bände von 2025 (Band 151) bis 1875 (Band 1)
+// Dynamische Generierung der Jahre und Bände von 2025 (Band 151) bis 1875 (Band 1)\
 function generateYearBandList(startYear = 2025, endYear = 1875, startBand = 151) {
     const container = document.getElementById('year-container');
     for (let year = startYear, band = startBand; year >= endYear; year--, band--) {
@@ -16,17 +16,8 @@ function generateYearBandList(startYear = 2025, endYear = 1875, startBand = 151)
 generateYearBandList();
 
 $(document).ready(function() {
-    // Toggle info panel
-    $('#info-btn').click(function() {
-        $('.info-panel').slideToggle(300, function() {
-            // Only scroll if we're opening the panel
-            if ($(this).is(':visible')) {
-                $('html, body').animate({
-                    scrollTop: 0
-                }, 300);
-            }
-        });
-    });
+    // Removed all info panel toggle functionality
+    // $('#info-btn').click(function() { ... });
 
     // Handle scroll animation
     function handleScroll() {
@@ -38,49 +29,41 @@ $(document).ready(function() {
             var position = $(this).offset().top;
             var elementHeight = $(this).outerHeight();
             var centerPosition = position + (elementHeight / 2);
-            var distanceFromCenter = Math.abs(windowHeight / 2 - centerPosition + scrollTop);
-            
-            // Adjust scaling based on viewport size
-            var scalingFactor = windowHeight > 800 ? 1.5 : 1.2;
-            
-            // Calculate size multiplier (1 at center, 0.7 at edges)
-            var sizeMultiplier = 1 - (distanceFromCenter / (windowHeight * 1.5));
-            sizeMultiplier = Math.max(0.7, Math.min(1, sizeMultiplier));
-            
-            // Calculate opacity
-            var opacity = 1 - (distanceFromCenter / (windowHeight));
-            opacity = Math.max(0.4, Math.min(1, opacity));
-            
-            // Apply transformations
-            $(this).css({
-                'transform': `scale(${0.9 + (sizeMultiplier * 0.2)})`,
-                'opacity': opacity
-            });
-            
-            // Highlight current year in viewport center
-            if (distanceFromCenter < 50) {
-                $(this).addClass('highlight');
-            } else {
-                $(this).removeClass('highlight');
-            }
+
+            // Calculate opacity based on distance from center of viewport
+            var distanceFromCenter = Math.abs((scrollTop + windowHeight / 2) - centerPosition);
+            var maxDistance = windowHeight / 2; // Max distance for full fade
+            var opacity = 1 - (distanceFromCenter / maxDistance);
+            opacity = Math.max(0.2, opacity); // Minimum opacity
+            $(this).css('opacity', opacity);
+
+            // Adjust size based on distance
+            var scale = 1 - (distanceFromCenter / (windowHeight * 2)); // Slower scaling
+            scale = Math.max(0.9, Math.min(1, scale)); // Ensure scale is between 0.9 and 1
+            $(this).css('transform', `scale(${scale})`);
         });
     }
 
-    // Search function
+    // Handle search functionality
     function handleSearch() {
-        var searchTerm = $('#search-input').val().trim();
-        
-        if (searchTerm !== '' && /^\d+$/.test(searchTerm)) {
-            var windowHeight = $(window).height();
-            var middleViewport = windowHeight / 2;
-            var found = false;
-            
+        const input = $('#search-input').val().trim();
+        $('.year-content').removeClass('highlight').find('.year, .counter').css('color', ''); // Reset highlights
+
+        if (input === '') {
+            return; // Do nothing if input is empty
+        }
+
+        let found = false;
+        const inputNum = parseInt(input, 10);
+
+        if (!isNaN(inputNum)) {
+            // Search by year or band
             $('.year-content').each(function() {
-                var yearText = $(this).find('.year').text().trim();
-                var counterText = $(this).find('.counter').text().trim();
-                
-                if (yearText === searchTerm || counterText === searchTerm) {
-                    var position = $(this).offset().top - middleViewport + ($(this).outerHeight() / 2);
+                const yearText = $(this).find('.year').text();
+                const bandText = $(this).find('.counter').text();
+
+                if (parseInt(yearText, 10) === inputNum || parseInt(bandText, 10) === inputNum) {
+                    const position = $(this).offset().top - ($(window).height() / 2) + ($(this).outerHeight() / 2);
                     $('html, body').animate({ scrollTop: position }, 600, 'swing');
                     
                     // Highlight match
@@ -119,9 +102,6 @@ $(document).ready(function() {
     // Initialize
     handleScroll();
     
-    // Auto-open info panel on first visit
-    if (!localStorage.getItem('visited')) {
-        $('.info-panel').slideDown(500);
-        localStorage.setItem('visited', 'true');
-    }
+    // Removed auto-open info panel on first visit
+    // if (!localStorage.getItem('visited')) { ... }
 });
