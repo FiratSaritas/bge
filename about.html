@@ -70,6 +70,43 @@
             color: var(--secondary-color);
             margin-top: 0;
         }
+        .support-section {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #fcf8e3; /* Light yellow background */
+            border-left: 5px solid #f0b400; /* Accent color */
+            border-radius: 8px;
+        }
+        .support-section h3 {
+            color: var(--primary-color);
+            border-bottom: none;
+            margin-top: 0;
+        }
+        .buy-me-a-coffee-btn {
+            display: inline-block;
+            background-color: #FFDD00; /* Buy Me A Coffee brand yellow */
+            color: #000000;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-top: 15px;
+            transition: background-color 0.3s ease, transform 0.2s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            width: fit-content;
+        }
+        .buy-me-a-coffee-btn:hover {
+            background-color: #FFDD44;
+            transform: translateY(-2px);
+            text-decoration: none;
+        }
+        .buy-me-a-coffee-btn i {
+            color: #000000; /* Icon color */
+        }
         footer {
             width: 100%;
             text-align: center;
@@ -180,6 +217,15 @@
 
         <h2>Wer steckt dahinter?</h2>
         <p>BGE Jahr wurde aus der Notwendigkeit heraus entwickelt, einen einfachen und präzisen Konverter für BGE-Jahre und -Bände zu schaffen. Als unabhängiges Projekt legen wir Wert auf Genauigkeit und Benutzerfreundlichkeit. Wir sind keine offizielle Stelle des Bundesgerichts, sondern eine private Initiative, die sich der Bereitstellung nützlicher juristischer Hilfsmittel verschrieben hat.</p>
+
+        <div class="support-section">
+            <h3>Ihre Unterstützung</h3>
+            <p>Wenn Ihnen BGE Jahr nützlich ist und Sie unsere Arbeit wertschätzen, freuen wir uns über Ihre Unterstützung. Jeder kleine Beitrag hilft uns, die Webseite zu pflegen, weiterzuentwickeln und die Serverkosten zu decken. Sie können uns einen Kaffee spendieren über:</p>
+            <a href="https://www.buymeacoffee.com/atlassa" target="_blank" class="buy-me-a-coffee-btn">
+                <i class="fas fa-coffee"></i> Unterstützen Sie uns auf Buy Me a Coffee!
+            </a>
+            <p style="font-size: 0.9em; margin-top: 10px;">Vielen Dank für Ihre Grosszügigkeit!</p>
+        </div>
 
         <h2>Feedback</h2>
         <p>Ihre Meinung ist uns wichtig! Sollten Sie Anregungen, Verbesserungsvorschläge oder Fehler bemerken, kontaktieren Sie uns bitte über unser <a href="contact.html">Kontaktformular</a> oder direkt per E-Mail. Ihr Feedback hilft uns, BGE Jahr stetig zu verbessern.</p>
