@@ -11,12 +11,6 @@
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9394843071535758" crossorigin="anonymous"></script>
-    <!-- Chart.js is now only needed on info.html, so removed from here -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
-    <script>
-        // No need for Chart.js script directly in index.html anymore
-        // as the chart is moved to info.html
-    </script>
 </head>
 <body>
     <header>
@@ -36,8 +30,6 @@
     </header>
 
     <div id="search-bar">
-        <!-- Removed info-btn here -->
-        <!-- <button id="info-btn"><i class="fas fa-info-circle"></i></button> -->
         <h2>Bundesgerichtsentscheide Schweiz</h2>
         <h1>BGE Jahr & Band Finder</h1>
         <div class="search-container">
@@ -46,62 +38,43 @@
         </div>
     </div>
 
-    <!-- Removed info-panel content from here -->
-    <!--
-    <div class="info-panel">
-        <h3><i class="fas fa-landmark"></i> Bundesgerichtsentscheide (BGE)</h3>
-        <p>Die amtliche Sammlung der Entscheidungen des Schweizerischen Bundesgerichts (BGE) dokumentiert rechtskräftige Urteile seit 1874.</p>
-        <p>Die Bundesgerichtsentscheide (BGE) sind eine zentrale Quelle für die schweizerische Rechtsprechung. Sie dienen Jurist:innen, Richter:innen und Studierenden als verbindliche Referenz für die Auslegung von Gesetzen. Nur ausgewählte, präjudizielle Urteile werden in der amtlichen Sammlung veröffentlicht.</p>
-
-        <div class="info-grid">
-            <div class="info-card">
-                <i class="fas fa-book"></i>
-                <h4>BGE Struktur</h4>
-                <p>Die Zuordnung von Jahr zu Bandnummer ist eindeutig und linear: Band 1 gehört zu 1875, Band 151 zu 2025. Jedes Jahr enthält rund 150 veröffentlichte Leiturteile, gegliedert nach den Rechtsgebieten. Einige Bände enthalten Anhänge oder chronologische Übersichten.</p>
-            </div>
-            <div class="info-card">
-                <i class="fas fa-search"></i>
-                <h4>Offizielle Quelle</h4>
-                <p>Vollständige Entscheide finden Sie auf:
-                    <a href="https://www.bger.ch" target="_blank">www.bger.ch</a>
-                </p>
-            </div>
-            <div class="info-card">
-                <i class="fas fa-balance-scale"></i>
-                <h4>Erläuterung zur Zitierweise</h4>
-                <p>Ein BGE wird typischerweise wie folgt zitiert: <strong>BGE [Band] [Rechtsgebiet] [Seitenzahl]</strong>. Beispiel: <em>BGE 142 II 123</em> steht für Band 142, öffentliches Recht (II), Seite 123.</p>
-                <p>Rechtsgebiete:</p>
-                <ul>
-                    <li>I = Öffentliches Recht</li>
-                    <li>II = Zivilrecht</li>
-                    <li>IV = Strafrecht</li>
-                    <li>V = Sozialversicherungsrecht</li>
-                </ul>
-            </div>
-        </div>
-
+    <!-- 🆕 Publisher Content Section (AdSense-Friendly) -->
+    <section class="info-grid" style="margin-top: 2em;">
         <div class="info-card">
-            <i class="fas fa-chart-bar"></i>
-            <h4>Statistische Übersicht</h4>
-            <p>Seit 1875 wurden über 20'000 Entscheide als BGE veröffentlicht. In den letzten Jahren nahm der Anteil an öffentlich-rechtlichen Entscheiden (Rechtsgebiet I) kontinuierlich zu. Der jährliche Umfang beträgt etwa 1'000 bis 1'500 Seiten.</p>
-            <p>Spitzenjahre mit besonders vielen Entscheiden: 1995, 2000, 2010, 2020.</p>
-            <div class="chart-container" style="width: 100%; max-width: 600px; margin: auto;">
-                <canvas id="bgeBarChart"></canvas>
-                <p style="font-size: 0.85em; font-style: italic; color: #555; text-align: center; margin-top: 4px;">
-                    Diese Zahlen beruhen auf öffentlich zugänglichen Statistiken, offiziellen BGE-Bänden und Berichten der Bundesgerichtsschrift.
-                </p>
-            </div>
+            <i class="fas fa-question-circle"></i>
+            <h4>Warum gibt es diese Seite?</h4>
+            <p>
+                „BGE Jahr“ wurde entwickelt, um dir schnell zu zeigen, welches Jahr zu welcher Bandnummer der amtlichen Sammlung der Bundesgerichtsentscheide gehört. Viele Nutzer:innen – von Jus-Studierenden bis zu erfahrenen Jurist:innen – verlieren Zeit mit der Zuordnung. Diese Seite macht Schluss damit.
+            </p>
         </div>
-        <div class="examples">
-            <h4><i class="fas fa-lightbulb"></i> Beispiele:</h4>
-            <p>BGE 146 I 123 = Band 146, Staatsrecht, Entscheid 123</p>
-            <p>BGE 150 IV 75 = Band 150, Strafrecht, Entscheid 75</p>
+        <div class="info-card">
+            <i class="fas fa-rocket"></i>
+            <h4>Was kannst du hier tun?</h4>
+            <ul>
+                <li>🎯 Jahr zu Band oder Band zu Jahr suchen</li>
+                <li>📚 Struktur der BGEs besser verstehen</li>
+                <li>🔍 Kontext von Zitaten schnell klären</li>
+            </ul>
         </div>
-    </div>
-    -->
+        <div class="info-card">
+            <i class="fas fa-users"></i>
+            <h4>Für wen ist das gedacht?</h4>
+            <p>
+                Ideal für Jus-Studierende, Praktikant:innen, Dozent:innen, Bibliotheken, Rechtsanwält:innen – oder einfach alle, die sich mit schweizerischer Rechtsprechung beschäftigen.
+            </p>
+        </div>
+        <div class="info-card">
+            <i class="fas fa-lightbulb"></i>
+            <h4>Hintergrund</h4>
+            <p>
+                Entstanden aus einem Studienprojekt an der Universität Bern, wurde diese Plattform mit dem Ziel erstellt, juristische Recherche effizienter und zugänglicher zu machen.
+            </p>
+        </div>
+    </section>
 
+    <!-- Main App Output -->
     <div class="year-container" id="year-container"></div>
-    
+
     <footer style="text-align: center; padding: 1em; font-size: 0.9em; background-color: #efefef;">
         &copy; 2025 BGE Jahr. Alle Rechte vorbehalten.
     </footer>
